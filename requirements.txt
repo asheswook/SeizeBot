@@ -1,0 +1,5 @@
+pafy
+selenium
+schedule
+pymysql
+youtube-dl

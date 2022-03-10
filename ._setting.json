@@ -1,0 +1,25 @@
+{
+    "mysql": {
+        "username": "user",
+        "password": "",
+        "host": "localhost",
+        "port": 3306,
+        "dbname": "",
+        "charset": "utf8"
+    },
+
+    "twicewiki": {
+        "id": "",
+        "password": ""
+    },
+
+    "twicenest": {
+        "id": "",
+        "password": ""
+    },
+
+    "want": {
+        "id": "",
+        "password": ""
+    }
+}
