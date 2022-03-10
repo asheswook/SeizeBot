@@ -2,6 +2,9 @@
 매일 아침 8시 트둥닷컴과 원트, 트와이스 위키에 뮤비 조회수를 게시하는 봇입니다.
 
 ## V2 개선 점
+안정성이 대폭 강화되었으며, Typescript로 다시 짜려고 했지만 개선 작업을 거치면서 그럴 필요가 없어졌습니다.
+몇달을 돌려도 OS 단에서 문제가 발생하지 않는 한 깔끔하게 작동합니다.
+
 * ~~내가 싫어하는 파이썬으로 짜여짐~~
 * 파일을 구조화
 * webdriver를 재활용하도록 개선
@@ -18,7 +21,7 @@ __현재는 기본적으로 코드 그대로는 정상 작동이 불가하도록
 Pull request 및 Issue 제안은 언제든지 환영이며, 이 코드를 사용하실 경우 명시된 라이선스 (MIT)를 준수해주시기 바랍니다.
 
 ## Usage
-Chromedriver, Selenium, youtube-dl이 필요합니다. (Selenium 및 youtube-dl은 스크립트 초기 실행 시 자동 설치)
+Python3, Chromedriver이 필요합니다.
 
 webdriver 선언은 아래와 같은 형태로 할 수 있습니다.
 ```python
@@ -26,11 +29,24 @@ webdriver = loadWebdriver("YOUR WEBDRIVER PATH")
 ```
 loadWebdriver() 함수의 인수를 지정하지 않을 시 자동으로 경로가 ```'/usr/local/share/chromedriver'``` 로 설정됩니다.
 
-webdriver 경로는 app.py의 ```webdriver_path```에 지정되어 있습니다.
+webdriver 경로는 ```app.py```의 ```webdriver_path```에 지정되어 있습니다.
 해당 변수를 수정하여 webdriver의 경로를 지정할 수 있습니다.
 이 레포에 설정되어 있는 기본 webdriver 경로는 ```'/usr/local/share/chromedriver'``` 입니다.
 
-### .setting.json
+webdriver 및 ```.setting.json``` 설정을 완료한 후 Terminal에서 아래 커맨드를 실행합니다.
+
+```git clone https://github.com/asheswook/SeizeBot.git```
+```cd SeizeBot```
+```python3 app.py```
+
+기본적으로 Package import에 실패하면 ```pip3```를 통해 패키지를 설치하지만, 정상 작동하지 않을 경우 수동으로 수행하세요.
+```git clone https://github.com/asheswook/SeizeBot.git```
+```cd SeizeBot```
+```pip3 install -r requirements.txt```
+```python3 app.py```
+
+
+## .setting.json
 ```
 {
   "mysql": {
