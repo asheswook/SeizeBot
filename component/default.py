@@ -29,12 +29,12 @@ except:
 def connectDB():
     print("connect to db")
     db = pymysql.connect(
-        user=mysqlConfig('username'),
-        passwd=mysqlConfig('password'),
-        host=mysqlConfig('host'),
-        port=mysqlConfig('port'),
-        db=mysqlConfig('db'),
-        charset=mysqlConfig('charset')
+        user=mysqlConfig['username'],
+        passwd=mysqlConfig['password'],
+        host=mysqlConfig['host'],
+        port=mysqlConfig['port'],
+        db=mysqlConfig['dbname'],
+        charset=mysqlConfig['charset']
     )
     print("ok")
     return db
