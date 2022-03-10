@@ -65,3 +65,10 @@ webdriver 경로는 app.py의 ```webdriver_path```에 지정되어 있습니다.
   * port: 접속할 DB의 포트 입니다. Mysql의 기본 포트는 3306 입니다.
   * dbname: SeizeBot이 사용할 Mysql database의 이름 입니다.
   * charset: 문자 인코딩 방식을 지정합니다. (권장: utf8)
+
+## Workflow
+updateDB() 함수 실행 -> 모든 Viewcount 불러옴 -> 현재 조회수 및 변동 수치 불러옴 -> 위키 문법에 맞춰 내용을 작성, data 변수에 저장 -> 데이터베이스에 저장된 조회수 항목들을 최신 조회수로 업데이트 -> data 변수 return, editDocument 함수로 보냄
+editDocument() 함수 실행 -> 트와이스 위키 접속 후 data를 문서에 작성, TWICE/뮤비 조회수 문서 업데이트
+captureDocument() 함수 실행 -> 트와이스 위키 TWICE/뮤비 조회수 문서 접속 -> 화면 캡쳐, 저장
+postImageToTN() 함수 실행 -> 트둥닷컴 접속, 캡쳐된 이미지 및 텍스트 업로드, 종료
+postImageToWT() 함수 실행 -> 원트 접속, 캡쳐된 이미지 및 텍스트 업로드, 종료
