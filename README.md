@@ -23,19 +23,7 @@ Pull request 및 Issue 제안은 언제든지 환영이며, 이 코드를 사용
 ## Usage
 Python3, Chromedriver이 필요합니다.
 
-webdriver 선언은 아래와 같은 형태로 할 수 있습니다.
-```python
-webdriver = loadWebdriver("YOUR WEBDRIVER PATH")
-```
-loadWebdriver() 함수의 인수를 지정하지 않을 시 자동으로 경로가 ```'/usr/local/share/chromedriver'``` 로 설정됩니다.
-
-webdriver 경로는 ```app.py```의 ```webdriver_path```에 지정되어 있습니다.
-해당 변수를 수정하여 webdriver의 경로를 지정할 수 있습니다.
-이 레포에 설정되어 있는 기본 webdriver 경로는 ```'/usr/local/share/chromedriver'``` 입니다.
-
-----
-webdriver 및 ```.setting.json``` 설정을 완료한 후 Terminal에서 아래 커맨드를 실행합니다.
-
+Terminal에서 아래 커맨드를 실행합니다.
 ```
 git clone https://github.com/asheswook/SeizeBot.git
 cd SeizeBot
@@ -45,7 +33,21 @@ python3 app.py
 기본적으로 Package import에 실패하면 ```pip3```를 통해 패키지를 설치하지만, 정상 작동하지 않을 경우 수동으로 수행하세요.
 ```
 pip3 install -r requirements.txt
+python3 app.py
 ```
+
+----
+이후 webdriver 경로 지정 및 .setting.json을 설정해 주세요.
+
+webdriver 경로는 ```app.py```의 ```webdriver_path```에 지정되어 있습니다.
+해당 변수를 수정하여 webdriver의 경로를 지정할 수 있습니다.
+이 레포에 설정되어 있는 기본 webdriver 경로는 ```'/usr/local/share/chromedriver'``` 입니다.
+
+참고로 webdriver 선언은 아래와 같은 형태로 할 수 있습니다.
+```python
+webdriver = loadWebdriver("YOUR WEBDRIVER PATH")
+```
+loadWebdriver() 함수의 인수를 지정하지 않을 시 자동으로 경로가 ```'/usr/local/share/chromedriver'``` 로 설정됩니다.
 
 
 ## .setting.json
