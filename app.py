@@ -9,10 +9,7 @@ from component.capture_wiki import *
 version = "V2"
 region = "ko"
 documentName = "TWICE%2F뮤비%20조회수"
-webdriver_path = '/usr/local/share/chromedriver'
-
-testdriver = getWebdriver(webdriver_path)
-post_to_dcinside(testdriver, documentName)
+webdriver_path = '/Users/jwlee/Documents/Github/SeizeBot/chromedriver'
 
 
 def doWork():
@@ -29,6 +26,10 @@ def doWork():
 
         driver = getWebdriver(webdriver_path)  # 드라이버 리로드
         post_to_want(driver, documentName)
+        driver.quit()
+
+        driver = getWebdriver(webdriver_path)  # 드라이버 리로드
+        post_to_dcinside(driver, documentName)
         driver.quit()
 
     except Exception as e:

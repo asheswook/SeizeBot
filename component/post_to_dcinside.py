@@ -6,7 +6,7 @@ def post_to_dcinside(driver: webdriver, documentName: str, specialComment=""):
 
     driver.set_window_size(1920, 1080)
     print('access board link...')
-    driver.get('https://www.twicenest.com/board')
+    driver.get('https://dcinside.com')
     print('login...')
 
     WebDriverWait(driver, 10).until(
@@ -55,18 +55,28 @@ def post_to_dcinside(driver: webdriver, documentName: str, specialComment=""):
         EC.presence_of_element_located((By.XPATH, "//body")))
     editor_body.send_keys(contentData)
     driver.switch_to.default_content()
+    time.sleep(1)
 
-    """
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+        (By.CSS_SELECTOR, "#tx_image > a"))).click()
+    time.sleep(1)
+    image_upload = driver.window_handles[1]
+    driver.switch_to.window(image_upload)
+
     filepath = os.getcwd() + '/cache/screenie.png'
     WebDriverWait(driver, 5).until(
-        EC.presence_of_element_located((By.ID, 'xe-fileupload')))
-    driver.find_element_by_id("xe-fileupload").send_keys(filepath)
+        EC.presence_of_element_located((By.CLASS_NAME, 'file_add'))).send_keys(filepath)
 
+    time.sleep(1)
     WebDriverWait(driver, 20).until(EC.invisibility_of_element_located(
-        (By.XPATH, 'xefu-container-2')))  # Wait until file uploaded
-    """
+        (By.CSS_SELECTOR, '.loding_bar.bar')))  # Wait until file uploaded
 
-    driver.find_element_by_class_name(
-        'write').click()
+    WebDriverWait(driver, 5).until(
+        EC.presence_of_element_located((By.CLASS_NAME, 'btn_apply'))).click()
+    time.sleep(1)
+    driver.switch_to.window(driver.window_handles[0])
+
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+        (By.CSS_SELECTOR, ".btn_blue.btn_svc.write"))).click()
     time.sleep(3)
     print('end')
