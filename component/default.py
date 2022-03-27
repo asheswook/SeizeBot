@@ -42,7 +42,7 @@ def getConnection():
     return db
 
 
-def loadWebdriver(driverpath='/usr/local/share/chromedriver'):
+def getWebdriver(driverpath='/usr/local/share/chromedriver'):
     print('kill chrome')
     os.system("pkill -9 chrome")
 

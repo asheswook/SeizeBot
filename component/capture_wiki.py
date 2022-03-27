@@ -1,7 +1,7 @@
 from default import *
 
 
-def captureDocument(driver, region, documentName):
+def capture_wiki(driver, region, documentName):
     file = 'screenie.png'
     path = './cache/' + file
 
