@@ -18,6 +18,8 @@ try:
     from selenium.webdriver.support.ui import WebDriverWait
     from selenium.webdriver.support import expected_conditions as EC
     from selenium.webdriver.common.by import By
+    from selenium.common.exceptions import NoSuchElementException
+    from selenium.webdriver.remote.webelement import WebElement
 
 except:
     os.system(
@@ -26,21 +28,21 @@ except:
     )
 
 
-def connectDB():
+def getConnection():
     print("connect to db")
     db = pymysql.connect(
-        user=mysqlConfig['username'],
-        passwd=mysqlConfig['password'],
-        host=mysqlConfig['host'],
-        port=mysqlConfig['port'],
-        db=mysqlConfig['dbname'],
-        charset=mysqlConfig['charset']
+        user=mysql_config['username'],
+        passwd=mysql_config['password'],
+        host=mysql_config['host'],
+        port=mysql_config['port'],
+        db=mysql_config['dbname'],
+        charset=mysql_config['charset']
     )
     print("ok")
     return db
 
 
-def loadWebdriver(driverpath='/usr/local/share/chromedriver'):
+def getWebdriver(driverpath='/usr/local/share/chromedriver'):
     print('kill chrome')
     os.system("pkill -9 chrome")
 
@@ -72,5 +74,5 @@ def loadWebdriver(driverpath='/usr/local/share/chromedriver'):
     return driver
 
 
-db = connectDB()
+db = getConnection()
 cursor = db.cursor(pymysql.cursors.DictCursor)

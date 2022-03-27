@@ -1,7 +1,7 @@
 from .default import *
 
 
-def postImageToTN(driver, documentName, specialComment=""):
+def post_to_twicenest(driver: webdriver, documentName: str, specialComment=""):
     delay = 3
 
     driver.set_window_size(1920, 1080)
@@ -11,11 +11,12 @@ def postImageToTN(driver, documentName, specialComment=""):
 
     WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.NAME, 'user_id')))
-    driver.find_element_by_name('user_id').send_keys(tnConfig['id'])
+    driver.find_element_by_name('user_id').send_keys(twicenest_config['id'])
 
     WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.NAME, 'password')))
-    driver.find_element_by_name('password').send_keys(tnConfig['password'])
+    driver.find_element_by_name('password').send_keys(
+        twicenest_config['password'])
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located(
         (By.XPATH, '//*[@id="fo_login_widget"]/input[6]')))

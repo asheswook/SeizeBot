@@ -1,141 +1,152 @@
 from .default import *
 
 
-class loadViewCount:
-    def __init__(self, urlInput, functionName):
-        self.url = urlInput
-        self.functionName = functionName
-        definedInput = urlInput.split('=')
-        print(f'Load viewcount..... {definedInput[1]}')
+class YTVideo:
+    __slots__ = ['url', 'function_name', 'video_info', 'color1',
+                 'color2', 'album_name', 'image_file']
+
+    def __init__(self, url: str, function_name: str):
+        self.url = url
+        self.function_name = function_name
+
+        defined_input = url.split('=')
+        print(f'Load viewcount..... {defined_input[1]}')
+
         self.video_info = pafy.new(self.url)
         print('Success loading viewcount.')
 
-    def getViewCountInt(self):  # int
+    def get_views_int(self) -> int:  # int
         result = self.video_info.viewcount
         return result
 
-    def getViewCountStr(self):  # str
+    def get_views_str(self) -> str:  # str
         result = str(self.video_info.viewcount)
         return result
 
-    def getRefinedViewCount(self):  # refined viewcount (str)
+    def get_refined_views_str(self) -> str:  # refined viewcount (str)
         result = str(format(self.video_info.viewcount, ",d"))
         return result
 
-    def getComparedCountRAW(self):  # int
-        sql = "SELECT * FROM data WHERE name = '" + self.functionName + "'"
+    def get_comparison_views(self) -> int:  # int
+        sql = "SELECT * FROM data WHERE name = '" + self.function_name + "'"
         cursor.execute(sql)
         db.commit()
+
         result = cursor.fetchall()
+
         try:
             result = result[0]['viewcount']
 
-        except:
-            print(self.functionName + "> row not found. create")
+        except TypeError:
+            print(self.function_name + "> row not found. create")
             sql = "INSERT INTO data (date, name, viewcount) VALUES ('0', '" + \
-                self.functionName + "', 0)"
+                self.function_name + "', 0)"
             cursor.execute(sql)
             db.commit()
             result = 0
             pass
 
+        except Exception as e:
+            print("unexpected error:" + str(e))
+            exit()
+
         return result
 
-    def getViewIncrease(self):
+    def get_views_increase(self) -> str:
         result = format(
-            (self.getViewCountInt() - (self.getComparedCountRAW())), ",d")
+            (self.get_views_int() - (self.get_comparison_views())), ",d")
         return result
 
-    def getWikiContent(self, color1, color2, album_name, image_file):
+    def get_wiki_content(self, color1, color2, album_name, image_file) -> str:
         result = """
 ||<|2><tablebordercolor=""" + color1 + """><width=100><""" + color1 + """>[[file:""" + image_file + """|width=100]]||<|1> '''""" + album_name + """''' ||
-|| 조회수 """ + self.getRefinedViewCount() + """회 [br]{{{#green (+""" + self.getViewIncrease() + """)}}} ||"""
+|| 조회수 """ + self.get_refined_views_str() + """회 [br]{{{#green (+""" + self.get_views_increase() + """)}}} ||"""
         return result
 
-    def updateDatabase(self):
+    def update_database(self) -> None:
         date = str(dt.datetime.now())
         sql = "UPDATE data SET date='" + date + "', viewcount=" + \
-            self.getViewCountStr() + " WHERE name='" + self.functionName + "'"
+            self.get_views_str() + " WHERE name='" + self.function_name + "'"
         cursor.execute(sql)
         db.commit()
 
 
-def updateDB(specialComment=""):
+def get_Vitaldata(specialComment="") -> str:
     viewIncrease = "0"
     data = ""
     date = str(dt.datetime.now())
 
     # Load ViewCounts
 
-    FOLView = loadViewCount(
+    FOLView = YTVideo(
         'https://www.youtube.com/watch?v=vPwaXytZcgI', 'FOL')
-    TORView = loadViewCount(
+    TORView = YTVideo(
         'https://www.youtube.com/watch?v=XA2YEHn-A8Q', 'TOR')
-    ICSView = loadViewCount(
+    ICSView = YTVideo(
         'https://www.youtube.com/watch?v=CM4CkVFmTds', 'ICS')
-    MNMView = loadViewCount(
+    MNMView = YTVideo(
         'https://www.youtube.com/watch?v=mH0_XpSHkZo', 'MNM')
-    FSView = loadViewCount('https://www.youtube.com/watch?v=3ymwOvzhwHs', 'FS')
-    FCView = loadViewCount('https://www.youtube.com/watch?v=kOHB85vDuow', 'FC')
-    OJJView = loadViewCount(
+    FSView = YTVideo('https://www.youtube.com/watch?v=3ymwOvzhwHs', 'FS')
+    FCView = YTVideo('https://www.youtube.com/watch?v=kOHB85vDuow', 'FC')
+    OJJView = YTVideo(
         'https://www.youtube.com/watch?v=CfUGjK6gGgs', 'OJJ')
-    YOYView = loadViewCount(
+    YOYView = YTVideo(
         'https://www.youtube.com/watch?v=mAKsZ26SabQ', 'YOY')
-    DNView = loadViewCount(
+    DNView = YTVideo(
         'https://www.youtube.com/watch?v=Fm5iP0S1z9w', 'DN')
-    WILView = loadViewCount(
+    WILView = YTVideo(
         'https://www.youtube.com/watch?v=i0p1bmr0EmE', 'WIL')
-    MNHView = loadViewCount(
+    MNHView = YTVideo(
         'https://www.youtube.com/watch?v=zi_6oaQyckM', 'MNH')
-    HSView = loadViewCount('https://www.youtube.com/watch?v=rRzxEiBLQCA', 'HS')
-    LKYView = loadViewCount(
+    HSView = YTVideo('https://www.youtube.com/watch?v=rRzxEiBLQCA', 'HS')
+    LKYView = YTVideo(
         'https://www.youtube.com/watch?v=V2hlQkVJZhE', 'LKY')
-    TWSView = loadViewCount(
+    TWSView = YTVideo(
         'https://www.youtube.com/watch?v=YdeeXDO--cs', 'TWS')
-    SGNView = loadViewCount(
+    SGNView = YTVideo(
         'https://www.youtube.com/watch?v=VQtonf1fv_s', 'SGN')
-    KNKNView = loadViewCount(
+    KNKNView = YTVideo(
         'https://www.youtube.com/watch?v=8A2t_tAjMz8', 'KNKN')
-    TTView = loadViewCount(
+    TTView = YTVideo(
         'https://www.youtube.com/watch?v=ePpPVE-GGJw', 'TT')
-    CHEView = loadViewCount(
+    CHEView = YTVideo(
         'https://www.youtube.com/watch?v=c7rCyll5AeY', 'CHE')
-    OOHView = loadViewCount(
+    OOHView = YTVideo(
         'https://www.youtube.com/watch?v=0rtV5esQT6I', 'OOH')
 
     # 일본앨범
-    DGHView = loadViewCount(
+    DGHView = YTVideo(
         'https://www.youtube.com/watch?v=VcOSUOpACq0', 'DGH')
-    PFWView = loadViewCount(
+    PFWView = YTVideo(
         'https://www.youtube.com/watch?v=fmOEKOjyDxU', 'PFW')
-    KURView = loadViewCount(
+    KURView = YTVideo(
         'https://www.youtube.com/watch?v=BSS8Y-0hOlY', 'KUR')
 
-    BTRView = loadViewCount(
+    BTRView = YTVideo(
         'https://www.youtube.com/watch?v=sLmLwgxnPUE', 'BTR')
-    FFRView = loadViewCount(
+    FFRView = YTVideo(
         'https://www.youtube.com/watch?v=kRT174IdxuM', 'FFR')
-    FNTView = loadViewCount(
+    FNTView = YTVideo(
         'https://www.youtube.com/watch?v=zQELp93xxfo', 'FNT')
-    BRTView = loadViewCount(
+    BRTView = YTVideo(
         'https://www.youtube.com/watch?v=ZdKYi5ekshM', 'BRT')
-    HPHPView = loadViewCount(
+    HPHPView = YTVideo(
         'https://www.youtube.com/watch?v=3n9rDwpa6QA', 'HPHP')
-    BDZView = loadViewCount(
+    BDZView = YTVideo(
         'https://www.youtube.com/watch?v=CMNahhgR_ss', 'BDZ')
-    IWBView = loadViewCount(
+    IWBView = YTVideo(
         'https://www.youtube.com/watch?v=X3H-4crGD6k', 'IWB')
-    WMUView = loadViewCount(
+    WMUView = YTVideo(
         'https://www.youtube.com/watch?v=DdLYSziSXII', 'WMU')
-    CDPView = loadViewCount(
+    CDPView = YTVideo(
         'https://www.youtube.com/watch?v=wQ_POfToaVY', 'CDP')
-    OMTView = loadViewCount(
+    OMTView = YTVideo(
         'https://www.youtube.com/watch?v=HuoOEry-Yc4', 'OMT')
-    SBSView = loadViewCount(
+    SBSView = YTVideo(
         'https://www.youtube.com/watch?v=96K5RxgTfW4', 'SBS')
 
     # 영어
-    TFSView = loadViewCount(
+    TFSView = YTVideo(
         'https://www.youtube.com/watch?v=f5_wn8mexmM', 'TFS')
 
     ######
@@ -145,126 +156,125 @@ def updateDB(specialComment=""):
 
     data += "Updated " + nowDatetime + "[br]" + specialComment
 
-    data += FOLView.getWikiContent("#003f9d", "#000000",
-                                   "SCIENTIST", "FormulaofLoveAlbumCover.png")  # 사이언티스트
-    data += TORView.getWikiContent("#003f9d", "#000000",
-                                   "Alcohol-Free", "TasteofLoveAlbumCover.jpeg")  # 테오럽
-    data += ICSView.getWikiContent("#a01623", "#000000",
-                                   "I CAN'T STOP ME", "The2ndFullAlbumCover.jpeg")  # 아캔스
-    data += MNMView.getWikiContent("#F8F8F0", "#CCA050",
-                                   "MORE & MORE", "MORENMOREAlbumCover.jpg")  # More & More
-    data += FSView.getWikiContent("#000000", "#D3C15E",
-                                  "Feel Special", "FeelSpecialAlbumCover.jpg")  # 필스
-    data += FCView.getWikiContent("#8FE1EF", "#FF45A0",
-                                  "FANCY YOU", "FancyYouAlbumCover.jpg")  # Fancy
-    data += OJJView.getWikiContent("#981419", "#D5B46E",
-                                   "올해 제일 잘한 일", "TheyearofYESAlbumCover.jpg")  # 올제잘
-    data += YOYView.getWikiContent("#000000", "#D61617",
-                                   "YES or YES", "YESorYESAlbumCover.jpg")  # YES or YES
-    data += DNView.getWikiContent("#041F56", "#D5B956", "Dance The Night Away",
-                                  "SummerNightsAlbumCover.jpg")  # Dance The Night Away
-    data += WILView.getWikiContent("#FABDC5", "#C30D00",
-                                   "What is Love?", "WhatisLoveAlbumCover.jpg")  # 왓이즈럽
-    data += MNHView.getWikiContent("#007A4B", "#E6BE8A",
-                                   "Merry & Happy", "MerryHappyAlbumCover.jpg")  # 메리해피_1
-    data += HSView.getWikiContent("#007A4B", "#E6BE8A",
-                                  "Heart Shaker", "MerryHappyAlbumCover.jpg")  # 메리해피_2
-    data += LKYView.getWikiContent("#F5B0CD", "#2F79C1",
-                                   "LIKEY", "TwicetagramAlbumCover.jpg")  # LIKEY
-    data += SGNView.getWikiContent("#001F46", "#FF3366",
-                                   "SIGNAL", "SIGNALAlbumCover.jpg")  # SIGNAL
-    data += KNKNView.getWikiContent("#FF6633", "#FEE238", "KNOCK KNOCK",
-                                    "TWICEcoasterLANE2AlbumCover.jpg")  # KNOCK KNOCK
-    data += TTView.getWikiContent("#FF5FA2", "#FCC89B",
-                                  "TT", "TWICEcoasterLANE1AlbumCover.jpg")  # TT
-    data += CHEView.getWikiContent("#40D8CC", "#FFFFFF",
-                                   "CHEER UP", "PAGETWOAlbumCover.jpg")  # CHEER UP
-    data += OOHView.getWikiContent("#EB0F66", "#FFFFFF",
-                                   "OOH-AHH하게", "THESTORYBEGINSAlbumCover.jpg")  # OOH-AHH하게
-    data += TWSView.getWikiContent("#000000", "#FFFFFF",
-                                   "트와이스송", "TWICESongCover.png")  # 트와이스송
+    data += FOLView.get_wiki_content("#003f9d", "#000000",
+                                     "SCIENTIST", "FormulaofLoveAlbumCover.png")  # 사이언티스트
+    data += TORView.get_wiki_content("#003f9d", "#000000",
+                                     "Alcohol-Free", "TasteofLoveAlbumCover.jpeg")  # 테오럽
+    data += ICSView.get_wiki_content("#a01623", "#000000",
+                                     "I CAN'T STOP ME", "The2ndFullAlbumCover.jpeg")  # 아캔스
+    data += MNMView.get_wiki_content("#F8F8F0", "#CCA050",
+                                     "MORE & MORE", "MORENMOREAlbumCover.jpg")  # More & More
+    data += FSView.get_wiki_content("#000000", "#D3C15E",
+                                    "Feel Special", "FeelSpecialAlbumCover.jpg")  # 필스
+    data += FCView.get_wiki_content("#8FE1EF", "#FF45A0",
+                                    "FANCY YOU", "FancyYouAlbumCover.jpg")  # Fancy
+    data += OJJView.get_wiki_content("#981419", "#D5B46E",
+                                     "올해 제일 잘한 일", "TheyearofYESAlbumCover.jpg")  # 올제잘
+    data += YOYView.get_wiki_content("#000000", "#D61617",
+                                     "YES or YES", "YESorYESAlbumCover.jpg")  # YES or YES
+    data += DNView.get_wiki_content("#041F56", "#D5B956", "Dance The Night Away",
+                                    "SummerNightsAlbumCover.jpg")  # Dance The Night Away
+    data += WILView.get_wiki_content("#FABDC5", "#C30D00",
+                                     "What is Love?", "WhatisLoveAlbumCover.jpg")  # 왓이즈럽
+    data += MNHView.get_wiki_content("#007A4B", "#E6BE8A",
+                                     "Merry & Happy", "MerryHappyAlbumCover.jpg")  # 메리해피_1
+    data += HSView.get_wiki_content("#007A4B", "#E6BE8A",
+                                    "Heart Shaker", "MerryHappyAlbumCover.jpg")  # 메리해피_2
+    data += LKYView.get_wiki_content("#F5B0CD", "#2F79C1",
+                                     "LIKEY", "TwicetagramAlbumCover.jpg")  # LIKEY
+    data += SGNView.get_wiki_content("#001F46", "#FF3366",
+                                     "SIGNAL", "SIGNALAlbumCover.jpg")  # SIGNAL
+    data += KNKNView.get_wiki_content("#FF6633", "#FEE238", "KNOCK KNOCK",
+                                      "TWICEcoasterLANE2AlbumCover.jpg")  # KNOCK KNOCK
+    data += TTView.get_wiki_content("#FF5FA2", "#FCC89B",
+                                    "TT", "TWICEcoasterLANE1AlbumCover.jpg")  # TT
+    data += CHEView.get_wiki_content("#40D8CC", "#FFFFFF",
+                                     "CHEER UP", "PAGETWOAlbumCover.jpg")  # CHEER UP
+    data += OOHView.get_wiki_content("#EB0F66", "#FFFFFF",
+                                     "OOH-AHH하게", "THESTORYBEGINSAlbumCover.jpg")  # OOH-AHH하게
+    data += TWSView.get_wiki_content("#000000", "#FFFFFF",
+                                     "트와이스송", "TWICESongCover.png")  # 트와이스송
     data += """
 ----
 {{{+1 '''Japan Albums'''}}}
 
 """
-    data += DGHView.getWikiContent("#000000", "#FFFFFF",
-                                   "Doughnut", "DoughnutAlbumCover.jpg")  # Doughnut
-    data += PFWView.getWikiContent("#d8a45a", "#FFFFFF", "Perfect World",
-                                   "PerfectWorldAlbumCover.jpeg")  # Perfect World
-    data += KURView.getWikiContent("#000000", "#FFFFFF",
-                                   "Kura Kura", "KuraKuraAlbumCover.jpg")  # KURA-KURA
-    data += BTRView.getWikiContent("#000000", "#FFFFFF",
-                                   "BETTER", "BETTERAlbumCover.jpg")  # BETTER
-    data += FFRView.getWikiContent("#000000", "#FFFFFF",
-                                   "FanFare", "FanFareAlbumCover.jpg")  # FANFARE
-    data += FNTView.getWikiContent("#000000", "#FFFFFF",
-                                   "Fake & True", "FakeNTrueAlbumCover.jpg")  # Fake and True
-    data += BRTView.getWikiContent("#000000", "#FFFFFF", "Breakthrough",
-                                   "BreakthroughAlbumCover.jpg")  # Breakthrough
-    data += HPHPView.getWikiContent("#000000", "#FFFFFF",
-                                    "HAPPY HAPPY", "HAPPYHAPPYAlbumCover.jpg")  # HAPPY HAPPY
-    data += IWBView.getWikiContent("#000000", "#FFFFFF", "I WANT YOU BACK",
-                                   "IWANTYOUBACKAlbumCover.jpg")  # I WANT YOU BACK
-    data += SBSView.getWikiContent("#000000", "#ffffff", "STAY BY MY SIDE",
-                                   "STAYBYMYALBUMCOVER.jpg")  # Stay by my side
-    data += BDZView.getWikiContent("#000000",
-                                   "#FFFFFF", "BDZ", "BDZAlbumCover.jpg")  # BDZ
-    data += WMUView.getWikiContent("#000000", "#FFFFFF",
-                                   "Wake Me Up", "WakeMeUpAlbumCover.jpg")  # Wake Me Up
-    data += CDPView.getWikiContent("#000000", "#FFFFFF",
-                                   "Candy Pop", "CandyPopAlbumCover.jpg")  # Candy Pop
-    data += OMTView.getWikiContent("#000000", "#FFFFFF", "One More Time",
-                                   "OneMoreTimeAlbumCover.jpg")  # One More Time
+    data += DGHView.get_wiki_content("#000000", "#FFFFFF",
+                                     "Doughnut", "DoughnutAlbumCover.jpg")  # Doughnut
+    data += PFWView.get_wiki_content("#d8a45a", "#FFFFFF", "Perfect World",
+                                     "PerfectWorldAlbumCover.jpeg")  # Perfect World
+    data += KURView.get_wiki_content("#000000", "#FFFFFF",
+                                     "Kura Kura", "KuraKuraAlbumCover.jpg")  # KURA-KURA
+    data += BTRView.get_wiki_content("#000000", "#FFFFFF",
+                                     "BETTER", "BETTERAlbumCover.jpg")  # BETTER
+    data += FFRView.get_wiki_content("#000000", "#FFFFFF",
+                                     "FanFare", "FanFareAlbumCover.jpg")  # FANFARE
+    data += FNTView.get_wiki_content("#000000", "#FFFFFF",
+                                     "Fake & True", "FakeNTrueAlbumCover.jpg")  # Fake and True
+    data += BRTView.get_wiki_content("#000000", "#FFFFFF", "Breakthrough",
+                                     "BreakthroughAlbumCover.jpg")  # Breakthrough
+    data += HPHPView.get_wiki_content("#000000", "#FFFFFF",
+                                      "HAPPY HAPPY", "HAPPYHAPPYAlbumCover.jpg")  # HAPPY HAPPY
+    data += IWBView.get_wiki_content("#000000", "#FFFFFF", "I WANT YOU BACK",
+                                     "IWANTYOUBACKAlbumCover.jpg")  # I WANT YOU BACK
+    data += SBSView.get_wiki_content("#000000", "#ffffff", "STAY BY MY SIDE",
+                                     "STAYBYMYALBUMCOVER.jpg")  # Stay by my side
+    data += BDZView.get_wiki_content("#000000",
+                                     "#FFFFFF", "BDZ", "BDZAlbumCover.jpg")  # BDZ
+    data += WMUView.get_wiki_content("#000000", "#FFFFFF",
+                                     "Wake Me Up", "WakeMeUpAlbumCover.jpg")  # Wake Me Up
+    data += CDPView.get_wiki_content("#000000", "#FFFFFF",
+                                     "Candy Pop", "CandyPopAlbumCover.jpg")  # Candy Pop
+    data += OMTView.get_wiki_content("#000000", "#FFFFFF", "One More Time",
+                                     "OneMoreTimeAlbumCover.jpg")  # One More Time
 
     data += """
 ----
 {{{+1 '''English Albums'''}}}
 
 """
-    data += TFSView.getWikiContent("#ff669e", "#fee6f2",
-                                   "The Feels", "TheFeelsAlbumCover.jpeg")  # The feels
+    data += TFSView.get_wiki_content("#ff669e", "#fee6f2",
+                                     "The Feels", "TheFeelsAlbumCover.jpeg")  # The feels
 
-    #################
     # Update Database
     print("update database")
-    FOLView.updateDatabase()
-    TORView.updateDatabase()
-    ICSView.updateDatabase()
-    MNMView.updateDatabase()
-    FSView.updateDatabase()
-    FCView.updateDatabase()
-    OJJView.updateDatabase()
-    YOYView.updateDatabase()
-    DNView.updateDatabase()
-    WILView.updateDatabase()
-    MNHView.updateDatabase()
-    HSView.updateDatabase()
-    LKYView.updateDatabase()
-    TWSView.updateDatabase()
-    SGNView.updateDatabase()
-    KNKNView.updateDatabase()
-    TTView.updateDatabase()
-    CHEView.updateDatabase()
-    OOHView.updateDatabase()
+    FOLView.update_database()
+    TORView.update_database()
+    ICSView.update_database()
+    MNMView.update_database()
+    FSView.update_database()
+    FCView.update_database()
+    OJJView.update_database()
+    YOYView.update_database()
+    DNView.update_database()
+    WILView.update_database()
+    MNHView.update_database()
+    HSView.update_database()
+    LKYView.update_database()
+    TWSView.update_database()
+    SGNView.update_database()
+    KNKNView.update_database()
+    TTView.update_database()
+    CHEView.update_database()
+    OOHView.update_database()
 
     # 일본앨범
-    DGHView.updateDatabase()
-    KURView.updateDatabase()
-    PFWView.updateDatabase()
-    BTRView.updateDatabase()
-    FFRView.updateDatabase()
-    FNTView.updateDatabase()
-    BRTView.updateDatabase()
-    HPHPView.updateDatabase()
-    BDZView.updateDatabase()
-    IWBView.updateDatabase()
-    WMUView.updateDatabase()
-    CDPView.updateDatabase()
-    OMTView.updateDatabase()
-    SBSView.updateDatabase()
+    DGHView.update_database()
+    KURView.update_database()
+    PFWView.update_database()
+    BTRView.update_database()
+    FFRView.update_database()
+    FNTView.update_database()
+    BRTView.update_database()
+    HPHPView.update_database()
+    BDZView.update_database()
+    IWBView.update_database()
+    WMUView.update_database()
+    CDPView.update_database()
+    OMTView.update_database()
+    SBSView.update_database()
 
     # 영어
-    TFSView.updateDatabase()
+    TFSView.update_database()
     print("ok")
     return data
