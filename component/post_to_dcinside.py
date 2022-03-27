@@ -15,7 +15,7 @@ def post_to_dcinside(driver: webdriver, documentName: str, specialComment=""):
 
     WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.NAME, 'pw')))
-    driver.find_element_by_name('password').send_keys(
+    driver.find_element_by_name('pw').send_keys(
         dc_config['password'])
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located(
