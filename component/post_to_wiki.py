@@ -1,4 +1,4 @@
-from default import *
+from .default import *
 
 
 def post_to_wiki(driver: webdriver, EDITDATA: str, region: str, documentName: str):

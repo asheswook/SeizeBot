@@ -1,4 +1,4 @@
-from default import *
+from .default import *
 
 
 def post_to_twicenest(driver: webdriver, documentName: str, specialComment=""):

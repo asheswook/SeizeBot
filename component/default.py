@@ -2,7 +2,7 @@ import time
 import os
 import platform
 import datetime as dt
-from config import *
+from .config import *
 
 try:
     import pafy

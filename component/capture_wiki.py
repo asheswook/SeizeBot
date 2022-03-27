@@ -1,4 +1,4 @@
-from default import *
+from .default import *
 
 
 def capture_wiki(driver, region, documentName):
