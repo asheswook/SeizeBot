@@ -1,7 +1,7 @@
 from .default import *
 
 
-def postImageToTN(driver, documentName, specialComment=""):
+def post_to_twicenest(driver: webdriver, documentName: str, specialComment=""):
     delay = 3
 
     driver.set_window_size(1920, 1080)

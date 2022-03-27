@@ -1,7 +1,7 @@
 from .default import *
 
 
-def postImageToWT(driver, documentName, specialComment=""):
+def post_to_want(driver: webdriver, documentName: str, specialComment=""):
     delay = 3
 
     driver.set_window_size(1920, 1080)
@@ -29,27 +29,28 @@ def postImageToWT(driver, documentName, specialComment=""):
         print('try to find userid element by name')
         WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.NAME, 'user_id')))
-        driver.find_element_by_name('user_id').send_keys(wtConfig['id'])
+        driver.find_element_by_name('user_id').send_keys(want_config['id'])
     except:
         print('failed')
         print('try to find userid element by xpath')
         WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="uid"]')))
         driver.find_element_by_xpath(
-            '//*[@id="uid"]').send_keys(wtConfig['id'])
+            '//*[@id="uid"]').send_keys(want_config['id'])
 
     try:
         print('try to find password element by name')
         WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.NAME, 'password')))
-        driver.find_element_by_name('password').send_keys(wtConfig['password'])
+        driver.find_element_by_name(
+            'password').send_keys(want_config['password'])
     except:
         print('failed')
         print('try to find password element by xpath')
         WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="upw"]')))
         driver.find_element_by_xpath(
-            '//*[@id="upw"]').send_keys(wtConfig['password'])
+            '//*[@id="upw"]').send_keys(want_config['password'])
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located(
         (By.XPATH, '//*[@id="fo_member_login"]/fieldset/div[2]/input')))
