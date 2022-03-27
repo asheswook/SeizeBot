@@ -1,4 +1,5 @@
 from component.default import *
+from component.post_to_dcinside import post_to_dcinside
 from component.post_to_twicenest import *
 from component.post_to_want import *
 from component.post_to_wiki import *
@@ -11,6 +12,7 @@ documentName = "TWICE%2F뮤비%20조회수"
 webdriver_path = '/usr/local/share/chromedriver'
 
 testdriver = getWebdriver(webdriver_path)
+post_to_dcinside(testdriver, documentName)
 
 
 def doWork():
