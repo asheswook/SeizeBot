@@ -11,11 +11,12 @@ def post_to_twicenest(driver: webdriver, documentName: str, specialComment=""):
 
     WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.NAME, 'user_id')))
-    driver.find_element_by_name('user_id').send_keys(tnConfig['id'])
+    driver.find_element_by_name('user_id').send_keys(twicenest_config['id'])
 
     WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.NAME, 'password')))
-    driver.find_element_by_name('password').send_keys(tnConfig['password'])
+    driver.find_element_by_name('password').send_keys(
+        twicenest_config['password'])
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located(
         (By.XPATH, '//*[@id="fo_login_widget"]/input[6]')))
