@@ -8,8 +8,7 @@ from component.capture_wiki import *
 
 version = "V2"
 region = "ko"
-documentName = "TWICE%2F뮤비%20조회수"
-webdriver_path = '/Users/jwlee/Documents/Github/SeizeBot/chromedriver'
+webdriver_path = '/usr/local/share/chromedriver'
 
 
 def doWork():
