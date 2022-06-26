@@ -44,7 +44,7 @@ def post_to_dcinside(driver: webdriver, documentName: str, specialComment=""):
     driver.find_element_by_id('subject').send_keys(title)
 
     contentData = specialComment + "뮤비 조회수 봇은 TWICEWIKI에 의해 운영되고 관리됩니다.\n" + \
-        "https://ko.twice.wiki/w/" + documentName + "\n\n"
+        "https://twice.wiki/w/" + documentName + "\n\n"
 
     print('Input content data...')
     basic_page_body_xpath = '//*[@id="tx_canvas_wysiwyg"]'

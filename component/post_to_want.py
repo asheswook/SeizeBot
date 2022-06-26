@@ -97,7 +97,7 @@ def post_to_want(driver: webdriver, documentName: str, specialComment=""):
     driver.find_element_by_name('title').send_keys(title)
 
     contentData = specialComment + "뮤비 조회수 봇은 TWICEWIKI에 의해 운영되고 관리됩니다.\n" + \
-        "https://ko.twice.wiki/w/" + documentName + "\n\n"
+        "https://twice.wiki/w/" + documentName + "\n\n"
 
     print('Input content data...')
     basic_page_body_xpath = '//*[@id="cke_1_contents"]/iframe'

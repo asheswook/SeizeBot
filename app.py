@@ -10,7 +10,7 @@ version = "V2"
 region = "ko"
 documentName = "TWICE%2F뮤비%20조회수"
 webdriver_path = '/usr/local/share/chromedriver'
-
+testdriver = getWebdriver(webdriver_path)
 
 def doWork():
     db.ping(reconnect=True)  # DB 재연결
