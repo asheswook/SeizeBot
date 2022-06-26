@@ -149,6 +149,9 @@ def get_Vitaldata(specialComment="") -> str:
     TFSView = YTVideo(
         'https://www.youtube.com/watch?v=f5_wn8mexmM', 'TFS')
 
+    # 싱글
+    POPView = YTVideo('https://www.youtube.com/watch?v=f6YDKF0LVWw', 'POP')
+
     ######
 
     now = dt.datetime.now()
@@ -236,6 +239,14 @@ def get_Vitaldata(specialComment="") -> str:
     data += TFSView.get_wiki_content("#ff669e", "#fee6f2",
                                      "The Feels", "TheFeelsAlbumCover.jpeg")  # The feels
 
+    data += """
+----
+{{{+1 '''Single Albums'''}}}
+
+"""
+    data += POPView.get_wiki_content("#f7f48d",
+                                     "#FFFFFF", "POP!", "NayeonPOPAlbumCover.jpeg")  # Nayeon POP!
+
     # Update Database
     print("update database")
     FOLView.update_database()
@@ -276,5 +287,8 @@ def get_Vitaldata(specialComment="") -> str:
 
     # 영어
     TFSView.update_database()
+
+    # 싱글
+    POPView.update_database()
     print("ok")
     return data
