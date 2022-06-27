@@ -244,8 +244,8 @@ def get_Vitaldata(specialComment="") -> str:
 {{{+1 '''Single Albums'''}}}
 
 """
-    data += POPView.get_wiki_content("#f7f48d",
-                                     "#FFFFFF", "POP!", "NayeonPOPAlbumCover.jpeg")  # Nayeon POP!
+    data += POPView.get_wiki_content("#f7f48d", "#FFFFFF",
+                                     "POP!", "NayeonPOPAlbumCover.jpeg")  # Nayeon POP!
 
     # Update Database
     print("update database")
