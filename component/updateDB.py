@@ -37,7 +37,7 @@ class YTVideo:
         try:
             result = result[0]['viewcount']
 
-        except TypeError:
+        except TypeError or IndexError:
             print(self.function_name + "> row not found. create")
             sql = "INSERT INTO data (date, name, viewcount) VALUES ('0', '" + \
                 self.function_name + "', 0)"
