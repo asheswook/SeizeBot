@@ -37,7 +37,7 @@ class YTVideo:
         try:
             result = result[0]['viewcount']
 
-        except TypeError or IndexError:
+        except:
             print(self.function_name + "> row not found. create")
             sql = "INSERT INTO data (date, name, viewcount) VALUES ('0', '" + \
                 self.function_name + "', 0)"
@@ -45,10 +45,6 @@ class YTVideo:
             db.commit()
             result = 0
             pass
-
-        except Exception as e:
-            print("unexpected error:" + str(e))
-            exit()
 
         return result
 
