@@ -3,8 +3,11 @@
   <!--<img src="assets/logo.png" alt="logo" width="200" height="auto" />-->
   <h1>SeizeBot</h1>
   
+  
   <p>
-    :bangbang: 개발 중
+    :bangbang: 아직 개발 중입니다.
+  </p>
+  <p>
     유튜브 뮤직비디오 조회수를 업데이트하고 게시하는 자동화 봇
   </p>
 
