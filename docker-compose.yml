@@ -1,0 +1,36 @@
+version: "3"
+services:
+  main:
+    build: .
+    volumes:
+      - $PWD:/root/SeizeBot
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 10
+        window: 5s
+    environment:
+      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    networks:
+      - backend
+  db:
+    build: 
+      context: .
+      dockerfile: Dockerfile.mariadb
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mariadb/conf.d:/etc/mysql/conf.d
+      - ./mariadb/data:/var/lib/mysql
+    environment:
+      - MYSQL_PORT=3306
+      - MYSQL_ROOT_PASSWORD=root!Seize
+      - MYSQL_DATABASE=SeizeBot
+    networks:
+      - backend
+    restart: always
+
+networks:
+  backend:
+    driver: bridge

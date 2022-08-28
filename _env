@@ -1,0 +1,11 @@
+TWICENEST_ID=yourid1
+TWICENEST_PW=yourpw1
+
+WANT_ID=yourid2
+WANT_PW=yourpw2
+
+DB_HOST=db
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=root!Seize
+DB_DATABASE=SeizeBot
