@@ -4,6 +4,7 @@
   <h1>SeizeBot</h1>
   
   <p>
+    :bangbang: 개발 중
     유튜브 뮤직비디오 조회수를 업데이트하고 게시하는 자동화 봇
   </p>
 
@@ -33,7 +34,7 @@
 <h4>
     <!--<a href="https://github.com/Louis3797/awesome-readme-template/">View Demo</a>
   <span> · </span>-->
-    <a href="https://github.com/asheswook/SeizeBotV3/">문서</a>
+    <a href="https://github.com/asheswook/SeizeBotV3/blob/master/README.md">문서</a>
   <span> · </span>
     <a href="https://github.com/asheswook/SeizeBotV3/issues/">오류 리포트</a>
   <span> · </span>
