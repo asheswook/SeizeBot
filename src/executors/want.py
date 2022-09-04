@@ -58,7 +58,7 @@ class Want:
         env = Environment()
         content = self.comment + "\n뮤비 조회수 봇은 TWICEWIKI에 의해 운영되고 관리됩니다.\n\n"
 
-        logger.info("Start to twicenest post process")
+        logger.info("Start to want post process")
         self._change_windowsize(1920, 1080)
 
         self._get_page("https://want.twicenest.com/FREE/login")
