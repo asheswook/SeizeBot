@@ -51,7 +51,7 @@ def doWork():
 
 schedule.every().day.at("07:59:40").do(doWork)
 
-logger.info("Waiting for...")
 while True:
+    logger.info("Waiting for...")
     schedule.run_pending()
     time.sleep(1)
