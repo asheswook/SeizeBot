@@ -61,6 +61,10 @@
 
 `DB_DATABASE=SeizeBot`: DB의 Database 이름
 
+## Contribution
+
+기능 개선, 추가를 비롯한 Pull request 및 Issue 제안은 언제든지 환영입니다.
+
 ## Authors
 
 - asheswook
