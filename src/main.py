@@ -1,4 +1,5 @@
 from multiprocessing.dummy import Pool, Process
+from executors.dcinside import Dcinside
 from src.utils.logger import logger
 from src.executors.take_screenshot import take_screen
 from src.executors.make import Make
@@ -7,37 +8,29 @@ from src.executors.want import Want
 from src.utils.database import Database
 from src.core.instance import MVInstance
 import time
-import multiprocessing
+import schedule
+import json
 
 time.sleep(5)
 db = Database()
 
-mv_list = [
-    {
-        "var_name": "FOL",
-        "album_name": "Formula of Love",
-        "yturl": "https://www.youtube.com/watch?v=vPwaXytZcgI",
-        "img_url": "https://upload.wikimedia.org/wikipedia/en/8/8e/Twice_-_Formula_of_Love.png"
-    },
-    {
-        "var_name": "TOL",
-        "album_name": "Taste of Love",
-        "yturl": "https://www.youtube.com/watch?v=XA2YEHn-A8Q",
-        "img_url": "https://upload.wikimedia.org/wikipedia/en/8/87/Twice_-_Taste_of_Love_(EP).png"
-    }
-]
+mv_list_file = open("mv_list.json", encoding='utf-8')
+mv_list = json.load(mv_list_file)
 
 
 def doWork():
-    logger.info("doWork")
+    logger.info("Let's work!")
     db.ping()
 
     make = Make()
 
     twicenest = Twicenest()
     want = Want()
-    twicenest.change_option("테스트", "개발 버전 테스트 중입니다.")
-    want.change_option("테스트", "개발 버전 테스트 중입니다.")
+    dcinside = Dcinside()
+
+    twicenest.change_option("테스트", "개발 버전 테스트 중입니다.", dev=True)
+    want.change_option("테스트", "개발 버전 테스트 중입니다.", dev=True)
+    dcinside.change_option("테스트", "개발 버전 테스트 중입니다.", dev=True)
 
     height = 100
 
@@ -51,6 +44,13 @@ def doWork():
 
     twicenest.POST()
     want.POST()
+    dcinside.POST()
 
 
 doWork()
+
+schedule.every().day.at("07:59:40").do(doWork)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
