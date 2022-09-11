@@ -20,9 +20,10 @@ class MVInstance(YTVideo):
             self.db.execute(sql)
             result = self.db.fetch()
 
-            result = result[0]['viewcount']
-        except:
-            logger.warning("No db result found for %s, Create it" %
+            result = result[0][2]  # get viewcount row
+
+        except IndexError:
+            logger.warning("It seems to have no result for %s. Create it" %
                            self.var_name)
             sql = f"INSERT INTO data (date, name, viewcount) VALUES ('0', '{self.var_name}', 0)"
             self.db.execute(sql)
@@ -49,7 +50,10 @@ class MVInstance(YTVideo):
         }
         """
         dict = super().get_information()
+
         dict["album_name"] = self.album_name
         dict["image_url"] = self.img_url
         dict["viewcount_increase"] = self.get_view_increase()
+        self.update_db()
+
         return dict
