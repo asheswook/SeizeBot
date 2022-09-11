@@ -26,18 +26,18 @@ def doWork():
 
     twicenest = Twicenest()
     want = Want()
-    dcinside = Dcinside()
+    dcinside = Dcinside("twiceyou")
 
     twicenest.change_option("테스트", "개발 버전 테스트 중입니다.", dev=True)
     want.change_option("테스트", "개발 버전 테스트 중입니다.", dev=True)
     dcinside.change_option("테스트", "개발 버전 테스트 중입니다.", dev=True)
 
-    height = 100
+    height = 70
 
     for mv in mv_list:
         instance = MVInstance(mv, db)
         make.add_mv_dict(instance.get_dict())
-        height += 200
+        height += 100
 
     make.make_html()
     take_screen(height)
@@ -46,11 +46,12 @@ def doWork():
     want.POST()
     dcinside.POST()
 
+    logger.info("All works done!")
 
-doWork()
 
 schedule.every().day.at("07:59:40").do(doWork)
 
+logger.info("Waiting for...")
 while True:
     schedule.run_pending()
     time.sleep(1)
