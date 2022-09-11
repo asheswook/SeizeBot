@@ -1,5 +1,5 @@
 from multiprocessing.dummy import Pool, Process
-from executors.dcinside import Dcinside
+from src.executors.dcinside import Dcinside
 from src.utils.logger import logger
 from src.executors.take_screenshot import take_screen
 from src.executors.make import Make
