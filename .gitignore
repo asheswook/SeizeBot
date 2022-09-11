@@ -12,6 +12,9 @@ mariadb/data/
 # Screen temp
 src/assets/screen.png
 
+# Html temp
+src/assets/index.html
+
 # Distribution / packaging
 .Python
 build/
