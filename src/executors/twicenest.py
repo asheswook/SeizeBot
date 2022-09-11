@@ -18,6 +18,7 @@ class Twicenest:
         self.driver = get_driver()
         self.title: str = None
         self.comment: str = None
+        self.isDev: bool = False
 
     def _get_page(self, url: str):
         logger.info("get_page: %s" % url)
@@ -48,11 +49,13 @@ class Twicenest:
             logger.info("No alert")
             pass
 
-    def change_option(self, title: Optional[str] = None, comment: Optional[str] = None):
+    def change_option(self, title: Optional[str] = None, comment: Optional[str] = None, dev: Optional[bool] = None):
         if title:
             self.title = title
         if comment:
             self.comment = comment
+        if dev:
+            self.isDev = True
 
     def POST(self):
         env = Environment()
@@ -79,7 +82,8 @@ class Twicenest:
 
         self._check_alert()
 
-        Select(self._wait_for(By.NAME, 'category_srl')).select_by_index(3)
+        if not self.isDev:
+            Select(self._wait_for(By.NAME, 'category_srl')).select_by_index(3)
 
         self._wait_for(By.NAME, "title").clear()
         self._wait_for(By.NAME, "title").send_keys(self.title)

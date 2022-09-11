@@ -20,6 +20,7 @@ class Dcinside:
         self.title: str = None
         self.comment: str = None
         self.gallery: str = gallery
+        self.isDev: bool = False
 
     def _get_page(self, url: str):
         logger.info("get_page: %s" % url)
@@ -56,11 +57,13 @@ class Dcinside:
             logger.info("No alert")
             pass
 
-    def change_option(self, title: Optional[str] = None, comment: Optional[str] = None):
+    def change_option(self, title: Optional[str] = None, comment: Optional[str] = None, dev: Optional[bool] = None):
         if title:
             self.title = title
         if comment:
             self.comment = comment
+        if dev:
+            self.isDev = True
 
     def POST(self):
         env = Environment()
@@ -87,9 +90,10 @@ class Dcinside:
 
         self._check_alert()
 
-        self._wait_for(By.CLASS_NAME, 'subject_list')
-        self._wait_for(
-            By.CSS_SELECTOR, '#write > div.clear > fieldset > div.write_subject.clear > ul > li:nth-child(5)').click()
+        if not self.isDev:
+            self._wait_for(By.CLASS_NAME, 'subject_list')
+            self._wait_for(
+                By.CSS_SELECTOR, '#write > div.clear > fieldset > div.write_subject.clear > ul > li:nth-child(5)').click()
 
         self._wait_for(By.ID, "subject").clear()
         self._wait_for(By.ID, "subject").send_keys(self.title)
