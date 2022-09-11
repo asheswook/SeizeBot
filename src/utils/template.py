@@ -115,7 +115,7 @@ class Engine:
                 <td>{{""" + var + """1}}</td>
             </tr>
             <tr align="center" width="580px" height="60px" bgcolor="white">
-                <td>조회수 {{""" + var + """2}}회 (+{{""" + var + """3}})</td>
+                <td>조회수 {{""" + var + """2}}회 <span class="increase">(+{{""" + var + """3}})</span></td>
             </tr>
             """
             result += content
