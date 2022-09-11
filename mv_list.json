@@ -1,0 +1,38 @@
+[
+    {
+        "var_name": "TTT",
+        "album_name": "Talk that Talk",
+        "yturl": "https://www.youtube.com/watch?v=k6jqx9kZgPM",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/6/67/Twice_-_Between_1%262.png"
+    },
+    {
+        "var_name": "SCT",
+        "album_name": "SCIENTIST",
+        "yturl": "https://www.youtube.com/watch?v=vPwaXytZcgI",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/8/8e/Twice_-_Formula_of_Love.png"
+    },
+    {
+        "var_name": "ACF",
+        "album_name": "Alcohol-Free",
+        "yturl": "https://www.youtube.com/watch?v=XA2YEHn-A8Q",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/8/87/Twice_-_Taste_of_Love_(EP).png"
+    },
+    {
+        "var_name": "ICS",
+        "album_name": "I CAN'T STOP ME",
+        "yturl": "https://www.youtube.com/watch?v=CM4CkVFmTds",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/9/90/Twice_-_Eyes_Wide_Open.png"
+    },
+    {
+        "var_name": "MNM",
+        "album_name": "MORE & MORE",
+        "yturl": "https://www.youtube.com/watch?v=mH0_XpSHkZo",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/c/c6/More_%26_More_Twice_Digital_Cover_-_TikTok_Version.jpeg"
+    },
+    {
+        "var_name": "FLS",
+        "album_name": "Feel Special",
+        "yturl": "https://www.youtube.com/watch?v=3ymwOvzhwHs",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/3/33/Twice_-_Feel_Special.png"
+    }
+]
