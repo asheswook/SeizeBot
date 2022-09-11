@@ -19,8 +19,8 @@ class Database:
             self.execute("SELECT * from data;")
         except pymysql.err.ProgrammingError:
             self.execute("""CREATE TABLE `data` (
-            `date` varchar(30) NOT NULL,
-            `name` varchar(100) NOT NULL,
+            `date` varchar(27) NOT NULL,
+            `name` varchar(4) NOT NULL,
             `viewcount` int(11) NOT NULL
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
             """)
