@@ -9,6 +9,8 @@
 * DB에 전일의 뮤직비디오 조회수를 저장하고 다음 날 통계를 업로드할 때 참조하여 증/감 수치를 표시합니다.
 * 여러 뮤직비디오의 통계를 하나의 이미지로 만들어 게시합니다.
 
+![image](https://user-images.githubusercontent.com/25760310/189534176-16ac1c77-925a-4b61-90ca-46c245508c54.png)
+
 ## Getting Started
 
 ### Dependencies
