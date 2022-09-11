@@ -28,9 +28,16 @@ def doWork():
     want = Want()
     dcinside = Dcinside("twiceyou")
 
-    twicenest.change_option("테스트", "개발 버전 테스트 중입니다.", dev=True)
-    want.change_option("테스트", "개발 버전 테스트 중입니다.", dev=True)
-    dcinside.change_option("테스트", "개발 버전 테스트 중입니다.", dev=True)
+    twicenest.change_option("[08:00] TWICE 뮤비 조회수",
+                            """뮤비봇의 V3 버전이 릴리즈 되었습니다.
+                            개발자분들의 많은 관심 부탁드립니다.
+                            https://github.com/asheswook/SeizeBotV3""", dev=False)
+    want.change_option("테스트", """뮤비봇의 V3 버전이 릴리즈 되었습니다.
+                            개발자분들의 많은 관심 부탁드립니다.
+                            https://github.com/asheswook/SeizeBotV3""", dev=False)
+    dcinside.change_option("테스트", """뮤비봇의 V3 버전이 릴리즈 되었습니다.
+                            개발자분들의 많은 관심 부탁드립니다.
+                            https://github.com/asheswook/SeizeBotV3""", dev=False)
 
     height = 70
 
