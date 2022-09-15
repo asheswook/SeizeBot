@@ -34,5 +34,29 @@
         "album_name": "Feel Special",
         "yturl": "https://www.youtube.com/watch?v=3ymwOvzhwHs",
         "img_url": "https://upload.wikimedia.org/wikipedia/en/3/33/Twice_-_Feel_Special.png"
+    },
+    {
+        "var_name": "FCY",
+        "album_name": "Fancy",
+        "yturl": "https://www.youtube.com/watch?v=kOHB85vDuow",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/0/09/Twice_-_Fancy_You.png"
+    },
+    {
+        "var_name": "OJJ",
+        "album_name": "올해 제일 잘한 일",
+        "yturl": "https://www.youtube.com/watch?v=CfUGjK6gGgs",
+        "img_url": ""
+    },
+    {
+        "var_name": "YOY",
+        "album_name": "YES or YES",
+        "yturl": "https://www.youtube.com/watch?v=mAKsZ26SabQ",
+        "img_url": ""
+    },
+    {
+        "var_name": "DNN",
+        "album_name": "Dance The Night Away",
+        "yturl": "",
+        "img_url": ""
     }
 ]
