@@ -14,11 +14,12 @@ import json
 time.sleep(5)
 db = Database()
 
-mv_list_file = open("mv_list.json", encoding='utf-8')
-mv_list = json.load(mv_list_file)
 
+def doWork(file_name: str or list):
+    logger.info("Load music video file list...")
+    mv_list_file = open(f"{file_name}.json", encoding='utf-8')
+    mv_list = json.load(mv_list_file)
 
-def doWork():
     logger.info("Let's work!")
     db.ping()
 
@@ -56,7 +57,7 @@ def doWork():
     logger.info("All works done!")
 
 
-schedule.every().day.at("07:59:40").do(doWork)
+schedule.every().day.at("07:59:40").do(doWork, "mv_list")
 
 while True:
     logger.info("Waiting for...")

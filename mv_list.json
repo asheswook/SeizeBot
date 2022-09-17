@@ -37,7 +37,7 @@
     },
     {
         "var_name": "FCY",
-        "album_name": "Fancy",
+        "album_name": "FANCY",
         "yturl": "https://www.youtube.com/watch?v=kOHB85vDuow",
         "img_url": "https://upload.wikimedia.org/wikipedia/en/0/09/Twice_-_Fancy_You.png"
     },
@@ -45,18 +45,180 @@
         "var_name": "OJJ",
         "album_name": "올해 제일 잘한 일",
         "yturl": "https://www.youtube.com/watch?v=CfUGjK6gGgs",
-        "img_url": ""
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/6/6f/Twice_-_The_Year_of_%22Yes%22.png"
     },
     {
         "var_name": "YOY",
         "album_name": "YES or YES",
         "yturl": "https://www.youtube.com/watch?v=mAKsZ26SabQ",
-        "img_url": ""
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/c/c7/Twice_–_Yes_or_Yes.png"
     },
     {
         "var_name": "DNN",
         "album_name": "Dance The Night Away",
-        "yturl": "",
-        "img_url": ""
+        "yturl": "https://www.youtube.com/watch?v=Fm5iP0S1z9w",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/b/bf/Twice_Summer_Nights.jpg"
+    },
+    {
+        "var_name": "WIL",
+        "album_name": "What is Love?",
+        "yturl": "https://www.youtube.com/watch?v=i0p1bmr0EmE",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/1/16/Twice_–_What_Is_Love%3F_cover.jpg"
+    },
+    {
+        "var_name": "MNH",
+        "album_name": "Merry & Happy",
+        "yturl": "https://www.youtube.com/watch?v=zi_6oaQyckM",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/b/b8/Twice-Merry_%26_Happy_%28album_cover%29.jpg"
+    },
+    {
+        "var_name": "HSK",
+        "album_name": "Heart Shaker",
+        "yturl": "https://www.youtube.com/watch?v=rRzxEiBLQCA",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/b/b8/Twice-Merry_%26_Happy_%28album_cover%29.jpg"
+    },
+    {
+        "var_name": "LKY",
+        "album_name": "LIKEY",
+        "yturl": "https://www.youtube.com/watch?v=V2hlQkVJZhE",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/e/eb/Twicetagram_album_cover.png"
+    },
+    {
+        "var_name": "SGN",
+        "album_name": "SIGNAL",
+        "yturl": "https://www.youtube.com/watch?v=VQtonf1fv_s",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/4/4a/TWICE%28트와이스%29_Signal_%28EP%29.jpg"
+    },
+    {
+        "var_name": "KNK",
+        "album_name": "KNOCK KNOCK",
+        "yturl": "https://www.youtube.com/watch?v=8A2t_tAjMz8",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/4/42/TWICE-Twicecoaster_Lane_2.jpg"
+    },
+    {
+        "var_name": "TTO",
+        "album_name": "TT",
+        "yturl": "https://www.youtube.com/watch?v=ePpPVE-GGJw",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/9/93/TWICEcoaster_LANE_1_Cover.jpg"
+    },
+    {
+        "var_name": "CHE",
+        "album_name": "CHEER UP",
+        "yturl": "https://www.youtube.com/watch?v=c7rCyll5AeY",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/0/0d/Page_Two_-_Twice_cover.jpg"
+    },
+    {
+        "var_name": "OOH",
+        "album_name": "OOH-AHH하게",
+        "yturl": "https://www.youtube.com/watch?v=0rtV5esQT6I",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/1/17/TheStoryBegins.jpg"
+    },
+    {
+        "var_name": "TWS",
+        "album_name": "트와이스송",
+        "yturl": "https://www.youtube.com/watch?v=YdeeXDO--cs",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/1/1e/Thinking_About_My_Bias.jpg"
+    },
+    {
+        "var_name": "CBT",
+        "album_name": "Celebrate",
+        "yturl": "https://www.youtube.com/watch?v=fMIn43MiwG8",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/2/26/Twice_-_Celebrate.png"
+    },
+    {
+        "var_name": "DGH",
+        "album_name": "Doughnut",
+        "yturl": "https://www.youtube.com/watch?v=VcOSUOpACq0",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/0/03/Twice_-_Doughnut.png"
+    },
+    {
+        "var_name": "PFW",
+        "album_name": "Perfect World",
+        "yturl": "https://www.youtube.com/watch?v=fmOEKOjyDxU",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/8/89/Twice_-_Perfect_World.png"
+    },
+    {
+        "var_name": "KUR",
+        "album_name": "Kura Kura",
+        "yturl": "https://www.youtube.com/watch?v=BSS8Y-0hOlY",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/1/1e/Twice_-_Kura_Kura.png"
+    },
+    {
+        "var_name": "BET",
+        "album_name": "BETTER",
+        "yturl": "https://www.youtube.com/watch?v=sLmLwgxnPUE",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/c/cd/Twice_-_Better.jpg"
+    },
+    {
+        "var_name": "FFR",
+        "album_name": "Fanfare",
+        "yturl": "https://www.youtube.com/watch?v=kRT174IdxuM",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/2/20/Twice_-_Fanfare.png"
+    },
+    {
+        "var_name": "FNT",
+        "album_name": "Fake & True",
+        "yturl": "https://www.youtube.com/watch?v=zQELp93xxfo",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/f/ff/Twice_-_%26Twice.png"
+    },
+    {
+        "var_name": "BRT",
+        "album_name": "Breakthrough",
+        "yturl": "https://www.youtube.com/watch?v=ZdKYi5ekshM",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/0/07/Twice_-_Breakthrough.png"
+    },
+    {
+        "var_name": "HPY",
+        "album_name": "HAPPY HAPPY",
+        "yturl": "https://www.youtube.com/watch?v=3n9rDwpa6QA",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/c/cc/Twice_-_Happy_Happy.jpg"
+    },
+    {
+        "var_name": "IWB",
+        "album_name": "I WANT YOU BACK",
+        "yturl": "https://www.youtube.com/watch?v=X3H-4crGD6k",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/7/79/Twice_BDZ.jpeg"
+    },
+    {
+        "var_name": "SBS",
+        "album_name": "STAY BY MY SIDE",
+        "yturl": "https://www.youtube.com/watch?v=96K5RxgTfW4",
+        "img_url": "https://static.wikia.nocookie.net/kpop/images/9/9a/TWICE_BDZ_-Repackage-_regular_edition_cover_art.png/revision/latest/scale-to-width-down/700?cb=20181022173324"
+    },
+    {
+        "var_name": "BDZ",
+        "album_name": "BDZ",
+        "yturl": "https://www.youtube.com/watch?v=CMNahhgR_ss",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/7/79/Twice_BDZ.jpeg"
+    },
+    {
+        "var_name": "WMU",
+        "album_name": "Wake Me Up",
+        "yturl": "https://www.youtube.com/watch?v=DdLYSziSXII",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/0/0c/Twice_Wake_Me_Up_cover.jpg"
+    },
+    {
+        "var_name": "CDP",
+        "album_name": "Candy Pop",
+        "yturl": "https://www.youtube.com/watch?v=wQ_POfToaVY",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/5/5b/TWICE-Candy_Pop_%28Standard_edition%29.jpg"
+    },
+    {
+        "var_name": "OMT",
+        "album_name": "One More Time",
+        "yturl": "https://www.youtube.com/watch?v=HuoOEry-Yc4",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/d/d4/TWICE-One_More_Time.jpg"
+    },
+    {
+        "var_name": "TFS",
+        "album_name": "The feels",
+        "yturl": "https://www.youtube.com/watch?v=f5_wn8mexmM",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/5/50/Twice_-_The_Feels.png"
+    },
+    {
+        "var_name": "POP",
+        "album_name": "POP",
+        "yturl": "https://www.youtube.com/watch?v=f6YDKF0LVWw",
+        "img_url": "https://upload.wikimedia.org/wikipedia/en/d/dd/Im_Nayeon_cover.jpg"
     }
 ]
