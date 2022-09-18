@@ -12,6 +12,7 @@ services:
         window: 5s
     environment:
       - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      - TZ=Asia/Seoul
     networks:
       - backend
   db:
@@ -25,6 +26,7 @@ services:
       - MYSQL_PORT=3306
       - MYSQL_ROOT_PASSWORD=root!Seize
       - MYSQL_DATABASE=SeizeBot
+      - TZ=Asia/Seoul
     networks:
       - backend
     restart: always
