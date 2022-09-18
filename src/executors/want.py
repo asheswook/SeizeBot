@@ -104,7 +104,7 @@ class Want:
         logger.info("Start to upload file")
         self._wait_for(By.ID, 'xe-fileupload').send_keys(filepath)
         logger.info("Uploading...")
-        self._wait_for_inv(By.XPATH, 'xefu-container-2')
+        self._wait_for_inv(By.CLASS_NAME, 'xefu-progress-status')
         logger.info("Upload success")
 
         self._wait_for(
