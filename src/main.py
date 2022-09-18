@@ -57,7 +57,7 @@ def doWork(file_name: str or list):
     logger.info("All works done!")
 
 
-schedule.every().day.at("07:59:40").do(doWork, "mv_list")
+schedule.every().day.at("07:59:40").do(lambda: doWork("mv_list"))
 
 while True:
     logger.info("Waiting for...")
