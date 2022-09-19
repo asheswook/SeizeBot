@@ -38,7 +38,7 @@ class Database:
         return self.cursor.fetchall()
 
     def ping(self):
-        return self.connection.ping(reconnect=True)
+        self.connection.ping(reconnect=True)
 
     def close(self):
         self.cursor.close()
