@@ -1,4 +1,4 @@
-:bangbang: **주의) 해당 프로젝트는 개발 중이며 커스텀 및 구동이 불가능할 수 있습니다.**
+:bangbang: **주의) 해당 프로젝트는 개발 중입니다.**
 # SeizeBot
 
 유튜브 뮤직비디오 조회수를 업데이트하고 게시하는 자동화 봇
@@ -60,6 +60,9 @@
 `DB_PASSWORD=root!Seize`: 접속에 사용할 비밀번호
 
 `DB_DATABASE=SeizeBot`: DB의 Database 이름
+
+#### Customization
+Will be here soon.
 
 ## Contribution
 
