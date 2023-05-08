@@ -21,13 +21,13 @@
 * 이 저장소에서 프로젝트를 Clone합니다.
 
 ```bash
-  git clone https://github.com/asheswook/SeizeBotV3.git
+  git clone https://github.com/asheswook/SeizeBot.git
 ```
 
 * 프로젝트 디렉토리로 이동해 Docker-Compose를 실행합니다. 모든 패키지와 종속성이 자동으로 설치되고, 이미지가 빌드되면 스크립트와 MariaDB 서버가 실행됩니다.
 
 ```bash
-  cd SeizeBotV3-master
+  cd SeizeBot
   docker-compose up
 ```
 
